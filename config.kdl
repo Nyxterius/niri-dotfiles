@@ -353,6 +353,7 @@ binds {
     Mod+Z hotkey-overlay-title="Run an Application: Zed" { spawn "bash" "-c" "flatpak run dev.zed.Zed"; }
     Mod+A hotkey-overlay-title="Run an Application: Discord" { spawn "bash" "-c" "flatpak run dev.vencord.Vesktop"; }
     Mod+BackSlash hotkey-overlay-title="Dismiss notifications" { spawn "bash" "-c" "makoctl dismiss -a"; }
+    Mod+K hotkey-overlay-title="Run an Application: Koodo" { spawn "bash" "-c" "env DISPLAY=:0 flatpak run io.github.troyeguo.koodo-reader"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -377,10 +378,6 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
@@ -591,4 +588,8 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+environment {
+    DISPLAY ":0"
 }
