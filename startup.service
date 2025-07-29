@@ -1,0 +1,8 @@
+[Unit]
+Description=my startup commands
+
+[Service]
+ExecStart=/usr/local/bin/startup_commands.sh
+
+[Install]
+WantedBy=default.target
