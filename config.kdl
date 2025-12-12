@@ -79,14 +79,15 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1600@180.000"
+    mode "2560x1600@60.000"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.25
+    scale 1.33
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
+    focus-at-startup
 
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -97,7 +98,13 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=880 y=0
+}
+
+output "HDMI-A-1" {
+    mode "3440x1440@120.000"
+    scale 1
+    position x=0 y=-1440
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -105,7 +112,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 10
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -258,7 +265,7 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
-spawn-at-startup "kitty"
+spawn-at-startup "bash" "-c" "kitty $exec 'btop'"
 spawn-at-startup "bash" "-c" "flatpak run com.vivaldi.Vivaldi"
 spawn-at-startup "bash" "-c" "flatpak run dev.vencord.Vesktop"
 
@@ -347,11 +354,11 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Shift+C hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
     Mod+Shift+W hotkey-overlay-title="Run an Application: Vivaldi" { spawn "bash" "-c" "flatpak run com.vivaldi.Vivaldi"; }
     Mod+Z hotkey-overlay-title="Run an Application: Zed" { spawn "bash" "-c" "flatpak run dev.zed.Zed"; }
-    Mod+A hotkey-overlay-title="Run an Application: Discord" { spawn "bash" "-c" "flatpak run dev.vencord.Vesktop"; }
+    Mod+D hotkey-overlay-title="Run an Application: Discord" { spawn "bash" "-c" "flatpak run dev.vencord.Vesktop"; }
     Mod+BackSlash hotkey-overlay-title="Dismiss notifications" { spawn "bash" "-c" "makoctl dismiss -a"; }
     Mod+K hotkey-overlay-title="Run an Application: Koodo" { spawn "bash" "-c" "env DISPLAY=:0 flatpak run io.github.troyeguo.koodo-reader"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
@@ -567,9 +574,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    F7 { screenshot; }
+    Ctrl+F7 { screenshot-screen; }
+    Alt+F7 { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
