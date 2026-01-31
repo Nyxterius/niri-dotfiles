@@ -174,7 +174,7 @@ layout {
         active-color "#d3b2ff"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#b2ffd3"
+        inactive-color "#6E6E6E"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -594,9 +594,5 @@ binds {
 }
 
 include "dms/binds.kdl";
-
-include "dms/cursor.kdl"
-
-include "basicsettings.kdl" // Added by niri-settings
-
-include "keybinds.kdl" // Added by niri-settings
+include "dms/colors.kdl";
+include "dms/cursor.kdl";
