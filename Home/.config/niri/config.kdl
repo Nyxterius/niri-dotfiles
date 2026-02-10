@@ -359,10 +359,10 @@ binds {
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Shift+C hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
     Mod+Shift+W hotkey-overlay-title="Run an Application: Vivaldi" { spawn "bash" "-c" "flatpak run com.vivaldi.Vivaldi"; }
-    Mod+Z hotkey-overlay-title="Run an Application: Zed" { spawn "bash" "-c" "flatpak run dev.zed.Zed"; }
+    Mod+Z hotkey-overlay-title="Run an Application: " { spawn "kate"; }
     Mod+D hotkey-overlay-title="Run an Application: Discord" { spawn "bash" "-c" "flatpak run com.discordapp.Discord"; }
     Mod+BackSlash hotkey-overlay-title="Dismiss notifications" { spawn "bash" "-c" "makoctl dismiss -a"; }
-    Mod+K hotkey-overlay-title="Run an Application: Koodo" { spawn "bash" "-c" "env DISPLAY=:0 flatpak run io.github.troyeguo.koodo-reader"; }
+    Mod+K hotkey-overlay-title="Run an Application: Koodo" { spawn "koodo-reader"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
